@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_check_print.report_cheque_qweb">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <div class="dontchnage">
+                               <!-- <div class="row" style="padding-left:2.0cm">-->
+                                <div class="col-xs-12">
+
+                                <p style="padding-top:2.6cm;padding-left:5.4cm">
+
+                                    <span style="font-size:17px; padding-left:15.0cm;" t-esc="o.check_data_get()[7]"/>
+
+                                    <span style="font-size:17px; padding-left:0.60cm;" t-esc="o.check_data_get()[8]"/>
+
+                                    <span style="font-size:17px; padding-left:0.70cm;" t-esc="o.check_data_get()[5]"/>
+
+                                    <span style="font-size:17px; padding-left:0.75cm;" t-esc="o.check_data_get()[6]"/>
+
+                                    <span style="font-size:17px; padding-left:0.80cm;" t-esc="o.check_data_get()[1]"/>
+
+                                    <span style="font-size:17px; padding-left:0.75cm;" t-esc="o.check_data_get()[2]"/>
+
+                                    <span style="font-size:17px; padding-left:0.85cm;" t-esc="o.check_data_get()[3]"/>
+
+                                    <span style="font-size:17px; padding-left:0.85cm;" t-esc="o.check_data_get()[4]"/>
+
+                                </p>
+
+                                </div>
+
+                               <!-- </div>-->
+
+                            </div>
+
+                            <div class="row" style="font-size:17px; padding-top:.8cm;padding-left:7.3cm">
+
+                                <div class="col-xs-12">
+
+                                    <span t-field="o.partner_id.name"/>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="font-size:17px; padding-top:.7cm;padding-left:6.5cm">
+                                <div class="col-xs-7">
+                                    <t t-set="amt" t-value="o.amount_to_text(o.amount, o)"/>
+                                    <t t-set="len" t-value="len(amt)-1"/>
+                                    <t t-if="len(amt) &gt; 26">
+                                        <t t-set="amt_text" t-value="o.amount_to_text_wrapp(o.amount, o)"/>
+                                        <span t-esc="amt_text[0][0]"/><br/>
+                                       <div style="padding-top:.2cm;">
+                                          <span t-esc="amt_text[0][1]" style="line-height:1.5cm;"/><span t-esc="amt_text[0][2]"/>
+                                       </div>
+                                    </t>
+                                    <t t-if="len(amt) &lt;= 26">
+                                        <span t-esc="o.amount_to_text(o.amount, o)"/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="row" style="font-size:18px; padding-top:0cm;padding-left:0.8cm">
+                                <div class="col-sm-4" style="font-size:18px;font-weight:bold;padding-left:22.5cm;position: relative; top:-5px;">
+                                    <strong>*</strong><span t-esc="o._get_amount()"/><strong>*</strong>
+                                </div>
+                                <div class="col-sm-4"/>
+                                <div class="col-sm-4"/>
+
+                            </div>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
