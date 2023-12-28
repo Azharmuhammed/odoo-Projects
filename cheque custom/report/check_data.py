@@ -6,7 +6,7 @@ to_19 = ('Zero',  'One',   'Two',  'Three', 'Four',   'Five',   'Six',
                    'Seven', 'Eight', 'Nine', 'Ten',   'Eleven', 'Twelve', 'Thirteen',
                    'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen')
 tens  = ('Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety')
-denom = ('', 'Thousand', 'Lakh', 'Crore', '')
+denom = ('', 'Thousand', '')
 
 
 class check_data_get(models.Model):
